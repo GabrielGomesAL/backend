@@ -101,7 +101,4 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 # Subpastas problemáticas / aulas
-aulas/aula07/
-aulas/aula08/
-backend/
-estrutura_de_dados/
+
