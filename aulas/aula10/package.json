@@ -1,0 +1,21 @@
+{
+  "name": "aula10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "mongoose": "^8.19.1"
+  },
+  "devDependencies": {
+    "jet": "^0.9.0-dev.13",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4"
+  }
+}
