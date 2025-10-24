@@ -43,8 +43,14 @@ function exibir(req, res) {
 // PUT /produtos/:id (após buscar)
 async function atualizar(req, res) {
   try {
+    // valida ausência de body OU ausência de campos exigidos
+    if (!req.body || typeof req.body.nome === 'undefined' || typeof req.body.preco === 'undefined') {
+      return res.status(422).json({ msg: 'Nome e preço do produto são obrigatórios' });
+    }
+
     const { id } = req.params;
-    const { nome, preco } = req.body || {};
+    const { nome, preco } = req.body;
+
     const produtoAtualizado = await Produto.findOneAndUpdate(
       { _id: id },
       { nome, preco },
@@ -52,7 +58,6 @@ async function atualizar(req, res) {
     );
 
     if (!produtoAtualizado) {
-      // teoricamente não chega aqui pois buscar já garantiu existência
       return res.status(404).json({ msg: 'Produto não encontrado' });
     }
 
@@ -68,7 +73,6 @@ async function remover(req, res) {
   const produtoRemovido = await Produto.findOneAndDelete({ _id: id });
 
   if (!produtoRemovido) {
-    // Se já foi removido antes ou nunca existiu
     return res.status(404).json({ msg: 'Produto não encontrado' });
   }
 
