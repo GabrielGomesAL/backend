@@ -1,4 +1,3 @@
-// tests/app.test.js
 const supertest = require('supertest');
 const app = require('../app');
 
@@ -62,7 +61,7 @@ describe('API REST - Autenticação e proteção de rotas', () => {
   test('GET /produtos com token renovado => 200 + JSON', async () => {
     const res = await request
       .get('/produtos')
-      .set('authorization', tokenRenovado); // aqui testando sem "Bearer "
+      .set('authorization', tokenRenovado); 
     expect(res.status).toBe(200);
     expect(res.type).toMatch(/json/);
     expect(Array.isArray(res.body)).toBe(true);
