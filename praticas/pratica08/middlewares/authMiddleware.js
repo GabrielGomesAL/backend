@@ -1,10 +1,4 @@
-// middlewares/authMiddleware.js
 const jwt = require('jsonwebtoken');
-
-/**
- * Extrai token do header Authorization.
- * Aceita "Bearer <token>" ou o token cru.
- */
 function extrairToken(authorizationHeader) {
   if (!authorizationHeader) return null;
   const val = authorizationHeader.trim();
